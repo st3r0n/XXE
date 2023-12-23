@@ -1,1 +1,13 @@
+suppose data is not sent in xml format then how can we find and exploit xxe vulnerbilities 
+
+
+detect --> use specila character like %!#<> etc to cause error if it return something like entities not found or entities not allowed it should be xxe
+
+attck vector 
+1. Xinclde  
+we can use  <foo xmlns:xi="http://www.w3.org/2001/XInclude"><xi:include parse="text" href="file:///etc/passwd"/></foo> to read files even if data is not sent in xml format
+
+
+
+2.xxe using file upload
 
