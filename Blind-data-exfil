@@ -55,7 +55,7 @@ eg.
 locating a DTD file:
 
 <!DOCTYPE foo [
-<!ENTITY % local_dtd SYSTEM "file:///usr/share/yelp/dtd/docbookx.dtd">
+<!ENTITY % local_dtd SYSTEM "file:///usr/share/yelp/dtd/docbookx.dtd">                   -------> when local dtd is present it should return code 200
 %local_dtd;
 ]>
 
